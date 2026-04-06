@@ -51,6 +51,11 @@ jobs:
           rm -rf .buildozer
           rm -rf ~/.buildozer
 
-      - name: Build APK
+      - name: Build APK (FORZANDO SDK)
         run: |
+          export ANDROID_HOME=$HOME/android-sdk
+          export ANDROID_SDK_ROOT=$HOME/android-sdk
+          export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+          export PATH=$ANDROID_HOME/platform-tools:$PATH
+
           buildozer android debug
